@@ -21,12 +21,42 @@
 <body>
   <div id="container"></div>
   <script type="text/babel">
+
+    class HelloWorld extends React.Component {
+      render() {
+        return <p>Hello, {this.props.greetTarget}!</p>
+      }
+    }
+
+    class Buttonify extends React.Component {
+      render() {
+        return(
+          <div>
+            <button type={this.props.behavior}>
+              {this.props.children}
+            </button>
+          </div>
+        )
+      }
+    }
+
     var destination = document.querySelector("#container");
-    ReactDOM.render(React.createElement(
-      "h1",
-      null,
-      "Бэтмен"
-    ), destination);
+
+    // ReactDOM.render(
+    //   <div>
+    //     <HelloWorld greetTarget="Valera"/>
+    //     <HelloWorld greetTarget="Artem"/>
+    //     <HelloWorld greetTarget="Vitaliy"/>
+    //   </div>,
+    //   destination
+    // );
+
+    ReactDOM.render(
+      <div>
+        <Buttonify behavior="submit">Submit</Buttonify>
+      </div>,
+      destination
+    );
 </script>
 </body>
 </html>
